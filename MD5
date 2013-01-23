@@ -1,0 +1,11 @@
+cef60fb73bc28afb8113aea87991cd1e *DESCRIPTION
+59c21b439c835f3a85a33763a277071a *NAMESPACE
+fd2484969f8ba6203a9eb3a656de9150 *R/bef.getMetaData.R
+47a55b1c98c895cd28a4d2afa89e6b11 *R/bef.getdata.R
+336fb16eaa3f4c8a7f7f9f7b0a5a0769 *R/bef.options.R
+b6f1264a24fe034cceccc3b405c3ef93 *R/rbefdata-package.R
+e533298f84ad98db0542047d2a107f04 *R/zzz.R
+b4132372508fb895e35521464ba121b0 *man/bef.getMetaData.Rd
+3ad6a90d704e631c154c9fa23d63aefb *man/bef.getdata.Rd
+b119052b3097945ad785f647b711912d *man/bef.options.Rd
+c7c2ce9ab535e774a66326c8de0caf26 *man/rbefdata-package.Rd

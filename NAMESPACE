@@ -1,0 +1,5 @@
+export(bef.getMetaData)
+export(bef.getdata)
+export(bef.options)
+import(RCurl)
+import(XML)

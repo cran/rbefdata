@@ -44,6 +44,8 @@
 
 bef.portal.get <- function(dataset_id, proposal_id, full_url, file, user_credentials=bef.options('user_credentials'), keyword, keyword_id,  keywords=FALSE, metadata=FALSE, attachments=FALSE, dir=bef.options('download_dir')) {
 
+  is_internet_connected()#?
+
   if (!missing(full_url)) {
     if (grepl(full_url, pattern="eml")) {
         metadata = bef.portal.get.metadata(full_url = full_url)

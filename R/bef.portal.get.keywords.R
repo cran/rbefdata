@@ -23,6 +23,7 @@
 
 bef.portal.get.keywords= function()
    {
+      is_internet_connected()#?
       keywords_json=fromJSON(getURL(paste0(bef.options('url'),"/keywords.json")))
       keywords_summary=unlist(lapply(keywords_json, function(x) (x$name)))
       return(keywords_summary)

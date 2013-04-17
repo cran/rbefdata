@@ -1,3 +1,10 @@
+rbefdata 0.3.2 
+==================
+
+* minor bugfix release fixes broken tests 
+* Brings back functions uder the old names. But now a deprecation warning is displayed. 
+  The old function names will be removed in one of the next release cycles.
+
 rbefdata 0.3.1
 ==================
 

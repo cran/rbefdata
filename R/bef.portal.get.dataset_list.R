@@ -15,8 +15,9 @@
 #' @export
 
 bef.portal.get.dataset_list <- function(keyword, keyword_id) {
+  is_internet_connected()#?
 
-  keyword_json=fromJSON(getURL(paste0(bef.options('url'),"/keywords.json")))
+  keyword_json = fromJSON(getURL(paste0(bef.options('url'),"/keywords.json")))
   names = unlist(lapply(keyword_json, function(x) (x$name)))
   ids = unlist(lapply(keyword_json, function(x) (x$id)))
   keyword_summary = data.frame(key = names, id = ids)
@@ -33,7 +34,7 @@ bef.portal.get.dataset_list <- function(keyword, keyword_id) {
   if(!missing(keyword)) {
     position = grep(keyword, keyword_summary$key)
     get_keyword_id = keyword_summary$id[position]
-    dataset_list = read.csv(paste(keyword_url(get_keyword_id),".csv", sep=""))
+    dataset_list = read.csv(paste0(keyword_url(get_keyword_id),".csv"))
     output = data.frame(id=dataset_list$id, title=dataset_list$title)
     return(output)
   }

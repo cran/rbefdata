@@ -1,0 +1,355 @@
+<eml:eml packageId='eml.1.1' system='knb' xmlns:eml='eml://ecoinformatics.org/eml-2.1.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='eml://ecoinformatics.org/eml-2.1.0 eml-2.1.0/eml.xsd'>
+  <dataset id='7'>
+    <alternateIdentifier>http://befdatadevelepment.biow.uni-leipzig.de/datasets/7</alternateIdentifier>
+    <title>Unit tests</title>
+    <creator id='Phdstudentnutrientcycling'>
+      <individualName>
+        <givenName>Stefan</givenName>
+        <surName>Phdstudentnutrientcycling</surName>
+      </individualName>
+      
+      
+      <electronicMailAddress>Phdstudentnutrientcycling@test.de</electronicMailAddress>
+    </creator>
+    <pubDate>2011-07-01</pubDate>
+    <language>en_US</language>
+    <abstract>
+      <para>Unit tests</para>
+      
+    </abstract>
+    <keywordSet>
+      <keyword>Column_one</keyword>
+      <keyword>Column_two</keyword>
+      <keyword>Column_three</keyword>
+      <keyword>Column_four</keyword>
+      <keyword>Column_five</keyword>
+      <keyword>Column_six</keyword>
+      <keyword>Column_seven</keyword>
+      <keyword>Column_eight</keyword>
+      <keyword>Column_nine</keyword>
+      <keywordThesaurus>Dataset Data Columns</keywordThesaurus>
+    </keywordSet>
+    <distribution scope='document'>
+      <online>
+        <url function='information'>
+          http://befdatadevelepment.biow.uni-leipzig.de/datasets/7/download.csv?separate_category_columns=true&amp;user_credentials=Yy2APsD87JiDbF9YBnU
+        </url>
+      </online>
+    </distribution>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Unit tests</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>117.89978</westBoundingCoordinate>
+          <eastBoundingCoordinate>118.148346</eastBoundingCoordinate>
+          <northBoundingCoordinate>29.285201</northBoundingCoordinate>
+          <southBoundingCoordinate>29.101777</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>
+              2011-04-18
+            </calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>
+              2011-04-18
+            </calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <contact>
+      <references>Phdstudentnutrientcycling</references>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <para>Unit tests</para>
+          <para>Unit tests</para>
+        </description>
+      </methodStep>
+      <sampling>
+        <studyExtent>
+          <description>
+            <para>2011-04-18 00:00:00 UTC - 2011-04-18 00:00:00 UTC</para>
+            
+            <para>Unit tests</para>
+            
+          </description>
+        </studyExtent>
+        <samplingDescription>
+          
+          
+        </samplingDescription>
+      </sampling>
+    </methods>
+    <dataTable>
+      <entityName>http://befdatadevelepment.biow.uni-leipzig.de/datasets/7.txt</entityName>
+      <entityDescription>Unit tests</entityDescription>
+      <physical>
+        <objectName>/datasets/7.txt</objectName>
+        <!-- TODO<size unit="bytes">1245</size> -->
+        <characterEncoding>ASCII</characterEncoding>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>http://befdatadevelepment.biow.uni-leipzig.de/datasets/7/download.csv?separate_category_columns=true&amp;user_credentials=Yy2APsD87JiDbF9YBnU</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute id='Column_one'>
+          <attributeName>datagroup one (Column_one)</attributeName>
+          <attributeLabel>Column_one</attributeLabel>
+          <attributeDefinition>datagroup one (Column_one: Column one)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>datagroup one</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup one</para>
+                <para>datagroup one</para>
+                <para>Column one</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_two'>
+          <attributeName>datagroup two (Column_two)</attributeName>
+          <attributeLabel>Column_two</attributeLabel>
+          <attributeDefinition>datagroup two (Column_two: Column two)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup two</para>
+                <para>datagroup two</para>
+                <para>Column two</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_three'>
+          <attributeName>datagroup three (Column_three)</attributeName>
+          <attributeLabel>Column_three</attributeLabel>
+          <attributeDefinition>datagroup three (Column_three: Column three)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>datagroup three</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup three</para>
+                <para>datagroup three</para>
+                <para>Column three</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_four'>
+          <attributeName>datagroup four (Column_four)</attributeName>
+          <attributeLabel>Column_four</attributeLabel>
+          <attributeDefinition>datagroup four (Column_four: Column four)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>datagroup four</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup four</para>
+                <para>datagroup four</para>
+                <para>Column four</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_five'>
+          <attributeName>datagroup five (Column_five)</attributeName>
+          <attributeLabel>Column_five</attributeLabel>
+          <attributeDefinition>datagroup five (Column_five: Column five)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>datagroup five</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup five</para>
+                <para>datagroup five</para>
+                <para>Column five</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_six'>
+          <attributeName>datagroup six (Column_six)</attributeName>
+          <attributeLabel>Column_six</attributeLabel>
+          <attributeDefinition>datagroup six (Column_six: Column six)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>datagroup six</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup six</para>
+                <para>datagroup six</para>
+                <para>Column six</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_seven'>
+          <attributeName>datagroup seven (Column_seven)</attributeName>
+          <attributeLabel>Column_seven</attributeLabel>
+          <attributeDefinition>datagroup seven (Column_seven: Column seven)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>datagroup seven</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup seven</para>
+                <para>datagroup seven</para>
+                <para>Column seven</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_eight'>
+          <attributeName>datagroup two (Column_eight)</attributeName>
+          <attributeLabel>Column_eight</attributeLabel>
+          <attributeDefinition>datagroup two (Column_eight: Column eight)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup two</para>
+                <para>datagroup two</para>
+                <para>Column eight</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+        <attribute id='Column_nine'>
+          <attributeName>datagroup two (Column_nine)</attributeName>
+          <attributeLabel>Column_nine</attributeLabel>
+          <attributeDefinition>datagroup two (Column_nine: Column nine)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <methods>
+            <methodStep>
+              <description>
+                <para>datagroup two</para>
+                <para>datagroup two</para>
+                <para>Column nine</para>
+              </description>
+              
+            </methodStep>
+          </methods>
+        </attribute>
+      </attributeList>
+      <caseSensitive>yes</caseSensitive>
+      <numberOfRecords>8</numberOfRecords>
+    </dataTable>
+    <otherEntity id='1'>
+      <alternateIdentifier>/files/freeformats/1/download?1311087902</alternateIdentifier>
+      <entityName>a_simple_freeformat_empty_file_for_testing.xls</entityName>
+      
+      <physical>
+        <objectName>a_simple_freeformat_empty_file_for_testing.xls</objectName>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>application/vnd.ms-excel</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>/files/freeformats/1/download?1311087902</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>"File Asset"</entityType>
+    </otherEntity>
+  </dataset>
+</eml:eml>

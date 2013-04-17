@@ -17,6 +17,19 @@ keyword_url <- function(id) {
   return(url)
 }
 
+# Helper that determines internet connection
+is_internet_connected <- function() {
+  if (.Platform$OS.type == "windows") {
+    ipmessage <- system("ipconfig", intern = TRUE)
+  } else {
+    ipmessage <- system("ifconfig", intern = TRUE)
+  }
+  validIP <- "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)[.]){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+  if(!any(grep(validIP, ipmessage[-grep("127.0.0.1", ipmessage)]))) {
+    warning("Sorry not internet connection. Please connect first!")
+  }
+}
+
 # a helper method which behaves like paperproposal_url in Rails
 paperproposal_url <- function(proposal_id, ...) {
   params = Filter(Negate(is.null), list(...))
@@ -43,11 +56,11 @@ xmlNodesValue <- function(doc, path){
 
 # for existing file, append a number to its filename
 suggest_filename <- function(filename, dir=getwd()) {
-  ofn = filename
+  suggested_filename = filename
   i = 0
-  while (file.exists(file.path(dir, filename))) {
+  while (file.exists(file.path(dir, suggested_filename))) {
     i = i + 1
-    filename = sub(ofn, pattern="(\\.\\w+)?$", replacement=sprintf("(%d)\\1", i))
+    suggested_filename = sub(filename, pattern="(\\.\\w+)?$", replacement=sprintf("(%d)\\1", i))
   }
-  return(filename)
+  return(suggested_filename)
 }

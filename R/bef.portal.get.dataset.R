@@ -41,6 +41,8 @@
 bef.portal.get.dataset <- function(dataset_id, user_credentials=bef.options("user_credentials"),
       full_url=dataset_url(dataset_id, user_credentials=user_credentials), curl=getCurlHandle(), ...) {
 
+  is_internet_connected()#?
+
   if (missing(dataset_id)) dataset_id = url_to_id(full_url)
   df = data.frame(id = dataset_id, full_url = full_url, stringsAsFactors = F)
   df = df[order(df$id), ]

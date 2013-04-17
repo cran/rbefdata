@@ -14,6 +14,8 @@
 #' @export
 
 bef.portal.get.attachment <- function(dataset_id, user_credentials=bef.options('user_credentials'), dir=bef.options('download_dir'), curl=getCurlHandle(), ...) {
+  is_internet_connected()#?
+
   url = dataset_url(dataset_id, "freeformat", user_credentials=user_credentials)
   freeformats_csv = getURLContent(url, curl=curl, ...)
   if (getCurlInfo(curl)$response.code != 200) {

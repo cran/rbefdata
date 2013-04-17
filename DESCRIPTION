@@ -1,6 +1,6 @@
 Package: rbefdata
 Title: BEFdata R package
-Version: 0.3.1
+Version: 0.3.2
 Author: Claas-Thido Pfaff <claas-thido.pfaff@idiv-biodiversity.de>,
         Karin Nadrowski <nadrowski@uni-leipzig.de>, Xingxing Man
         <manxingxing@gmail.com>
@@ -25,9 +25,9 @@ Collate: 'bef.options.R' 'zzz.R' 'rbefdata-package.R'
         'bef.tematres.search.keywords.R'
         'bef.tematres.search.narrower_keywords.R'
         'bef.tematres.search.broader_keywords.R' 'helper.R'
-        'rbefdata-defunct.R' 'bef.portal.get.attachment.R'
-        'bef.portal.get.dataset_list.R'
-Packaged: 2013-06-10 09:28:48 UTC; sabsirro
+        'bef.portal.get.attachment.R' 'bef.portal.get.dataset_list.R'
+        'rbefdata-deprecated.R'
+Packaged: 2013-06-19 18:28:37 UTC; sabsirro
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-06-12 09:18:59
+Date/Publication: 2013-06-20 07:44:10

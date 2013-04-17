@@ -1,4 +1,4 @@
-\name{rbefdata-defunct}
+\name{rbefdata-deprecated}
 \alias{bef.getDataset}
 \alias{bef.getKeywords}
 \alias{bef.getMetadata}
@@ -7,34 +7,31 @@
 \alias{bef.searchTematres}
 \alias{bef.searchTematresLower}
 \alias{bef.searchTematresUpper}
-\alias{rbefdata-defunct}
-\title{Defunct functions in package rbefdata}
+\alias{rbefdata-deprecated}
+\title{Deprecated functions in package rbefdata}
 \usage{
-  bef.getdata(dataset_id, proposal_id, full_url,
-    user_credentials)
+  bef.getdata(...)
 
-  bef.getDataset(dataset_id, full_url, user_credentials,
-    curl = getCurlHandle(), ...)
+  bef.getDataset(...)
 
   bef.getKeywords()
 
-  bef.getMetadata(dataset_id, full_url)
+  bef.getMetadata(...)
 
-  bef.getProposal(proposal_id, user_credentials, full_url,
-    curl = getCurlHandle(), ...)
+  bef.getProposal(...)
 
-  bef.searchTematres(lookup_keyword)
+  bef.searchTematres(...)
 
-  bef.searchTematresLower(lookup_keyword)
+  bef.searchTematresLower(...)
 
-  bef.searchTematresUpper(lookup_keyword)
+  bef.searchTematresUpper(...)
 }
 \description{
   These following functions are renamed or removed. Please
   use new functions instead.
 }
 \details{
-  \tabular{ll}{ \strong{Defunct functions} \tab
+  \tabular{ll}{ \strong{Deprecated functions} \tab
   \strong{Replacement} \cr \code{bef.getdata} \tab
   \code{\link{bef.portal.get}} \cr \code{bef.getDataset}
   \tab \code{\link{bef.portal.get.dataset}} \cr

@@ -1,6 +1,6 @@
-6a338eb51c9e452a5233f42848d5aa8b *DESCRIPTION
+145f3de4bdaf10e2433567047293c2ee *DESCRIPTION
 7231872f4c7f8cb31f1d585572d61e01 *NAMESPACE
-ce178d5e1376aee5ff22f145e38e7549 *NEWS
+e5707784455080225bcd215a300c7143 *NEWS
 643ff0da5055cb2f7cf4818d263d65e2 *R/bef.options.R
 b3576ff43b321ba5504fd2f4d099e017 *R/bef.portal.get.R
 a298a2355d22b241fba50af99afac153 *R/bef.portal.get.attachment.R
@@ -16,7 +16,7 @@ be83348cbe3001b5741c3d2ec179dffc *R/bef.tematres.search.narrower_keywords.R
 cc83f2fa905255e9cd0a85ac2721faee *R/helper.R
 98a7740bdbfbb6034bd264ebe907d6c9 *R/rbefdata-defunct.R
 b6f1264a24fe034cceccc3b405c3ef93 *R/rbefdata-package.R
-f404b0af5ff3e58f2cdd94e622ef9180 *R/zzz.R
+8c1070574cb67d4795fdb00537b8a52e *R/zzz.R
 bf2b63224ebe29da2b7b35c0346c95a5 *inst/tests/test.bef.portal.get.dataset.R
 ed7fbe17e0d8fad30450701b96bf0ab4 *man/bef.options.Rd
 25f52c6685db87f32e8b175815d16f27 *man/bef.portal.get.Rd

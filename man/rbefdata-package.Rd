@@ -6,7 +6,7 @@
 \description{
   The package is by default associated to the websites of
   the BEF-China experiment:
-  \url{http://befdataproduction.biow.uni-leipzig.de}.
+  \url{http://china.befdata.biow.uni-leipzig.de}.
 }
 \details{
   If you use the package with your own instance of a

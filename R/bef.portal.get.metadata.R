@@ -1,55 +1,67 @@
 #' Get the metadata of a dataset from the BEFdata portal
 #'
-#' This function fetches the metadata associated with dataset on a BEFdata portal.
-#' You need to provide the id of the dataset, or the direct link to the Ecological
-#' Metadata Language file. You can find the url on the dataset page.
+#' This function fetches the metadata associated with a dataset on a BEFdata portal.
+#' You need to provide the function with an id of the dataset or a path to an eml
+#' file you downloaded from the portal manually. You can find the ID in the URL of
+#' the dataset page in the portal (e.g ID 6: .../datasets/6).
 #'
-#' @param dataset_id The id of the dataset in the BEFdata portal.
-#' @param full_url functions as direct download link for the eml file.
-#' @param file path to a local eml file
+#' @param dataset This is either a dataset ID or a file path to a eml metadata file.
 #'
-#' @return a list of metadata. metadata that doesn't exist is represented as \code{NA}
-#' @aliases bef.get.metadata
+#' @return A list of metadata. Metadata That doesn't exist is represented as \code{NA}
 #' @import XML
-#' @export
-#'
+#' @export bef.portal.get.metadata
 
-bef.portal.get.metadata <- bef.get.metadata <- function(dataset_id, full_url = dataset_url(dataset_id, "eml"), file) {
+bef.portal.get.metadata <- bef.portal.get.metadata_for <- function(dataset) {
+  if(is.character(dataset)) {
+    object = dataset
+  } else {
+    object = dataset_url(dataset, "eml", separate_category_columns=TRUE)
+  }
 
-  if (!missing(file)) full_url = file
-  eml = xmlParse(full_url)
+  metadata = xmlTreeParse(object, useInternalNodes = T)
 
-  template = list(
-    title = "//dataset/title",
-    abstract = "//dataset/abstract/para",
-    taxonomicextent = "//dataset//generalTaxonomicCoverage",
-    sampling = "//dataset//samplingDescription/para",
-    spatial_information = list(
-      description = "//geographicCoverage/geographicDescription",
-      coordinates = c(west = "//geographicCoverage/boundingCoordinates/westBoundingCoordinate",
-                    east = "//geographicCoverage/boundingCoordinates/eastBoundingCoordinate",
-                    north = "//geographicCoverage/boundingCoordinates/northBoundingCoordinate",
-                    south = "//geographicCoverage/boundingCoordinates/southBoundingCoordinate")),
-    temporal_information = c(begin = "//temporalCoverage//beginDate", end = "//temporalCoverage//endDate"),
-    authors = list(
-      firstname = "//creator/individualName/givenName",
-      lastname = "//creator/individualName/surName",
-      email = "//creator/electronicMailAddress"),
-    keywordList = list(
-              keywords= "//keywordSet")
-  )
+  template_dataset = list(title = "//dataset/title",
+                  abstract = "//dataset/abstract",
+                  publicationDate = "//dataset/pubDate",
+                  language = "//dataset/language",
+                  creators = list(givenName = "//dataset/creator//givenName",
+                                 surName = "//dataset/creator//surName",
+                                 electronicMailAddress = "//dataset/creator//electronicMailAddress"),
+                  authors = list(givenName = "//creator/individualName/givenName",
+                                 surName = "//creator/individualName/surName",
+                                 electronicMailAddress = "//creator/electronicMailAddress"),
+                  intellectualRights = "//dataset/intellectualRights",
+                  distribution = "//dataset/distribution/online/url",
+                  keywords = "//keyword",
+                  generalTaxonomicCoverage = "//dataset//generalTaxonomicCoverage",
+                  samplingDescription = "//dataset//samplingDescription/para",
+                  spatial_coverage = list(description = "//geographicCoverage/geographicDescription",
+                                             coordinates = list(west = "//geographicCoverage/boundingCoordinates/westBoundingCoordinate",
+                                                             east = "//geographicCoverage/boundingCoordinates/eastBoundingCoordinate",
+                                                             north = "//geographicCoverage/boundingCoordinates/northBoundingCoordinate",
+                                                             south = "//geographicCoverage/boundingCoordinates/southBoundingCoordinate")),
+                  temporal_coverage = c(begin = "//temporalCoverage//beginDate",
+                                        end = "//temporalCoverage//endDate"),
+                  related_material = list(objectName = "//otherEntity/entityName",
+                                          dataFormat = "//otherEntity/physical/dataFormat",
+                                          distribution = "//otherEntity/physical/distribution")
+                  )
 
-  out = rapply(template, function(x) xmlNodesValue(path=x, doc=eml), how="replace")
+
+  out = rapply(template_dataset, function(x) xmlNodesValue(path=x, doc=metadata), how="replace")
+
+  out$creators = as.data.frame(out$creators, stringsAsFactors=F)
   out$authors = as.data.frame(out$authors, stringsAsFactors=F)
+  out$spatial_coverage$coordinates = as.data.frame(out$spatial_coverage$coordinates, stringsAsFactors=F)
+  out$related_material = as.data.frame(out$related_material, stringsAsFactors=F)
 
-  attributeList = getNodeSet(eml, path="//attributeList/attribute")
-
+  attributeList = getNodeSet(metadata, path="//attributeList/attribute")
   column_template = list(header = "./attributeLabel",
                          description = "./attributeDefinition",
                          unit = ".//unit",
+                         numericDomain = ".//numericDomain",
                          info = ".//attributeName"
                          )
-
   columns = lapply(column_template, function(c) {
     sapply(attributeList, function(d) {
       xmlNodesValue(doc=d, path=c)
@@ -60,9 +72,11 @@ bef.portal.get.metadata <- bef.get.metadata <- function(dataset_id, full_url = d
 
   if (nrow(columns)) {
     columns$unit = as.character(columns$unit)
-    columns$unit[is.na(columns$unit) | columns$unit == "dimensionless"] = "dimensionless"
+    # columns$unit[is.na(columns$unit) | columns$unit == "dimensionless"] = "dimensionless"
     out$columns = columns
   }
 
   return(out)
 }
+
+

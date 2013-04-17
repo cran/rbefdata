@@ -1,29 +1,23 @@
 \name{bef.portal.get.metadata}
-\alias{bef.get.metadata}
 \alias{bef.portal.get.metadata}
 \title{Get the metadata of a dataset from the BEFdata portal}
 \usage{
-  bef.portal.get.metadata(dataset_id,
-    full_url = dataset_url(dataset_id, "eml"), file)
+  bef.portal.get.metadata(dataset)
 }
 \arguments{
-  \item{dataset_id}{The id of the dataset in the BEFdata
-  portal.}
-
-  \item{full_url}{functions as direct download link for the
-  eml file.}
-
-  \item{file}{path to a local eml file}
+  \item{dataset}{This is either a dataset ID or a file path
+  to a eml metadata file.}
 }
 \value{
-  a list of metadata. metadata that doesn't exist is
+  A list of metadata. Metadata That doesn't exist is
   represented as \code{NA}
 }
 \description{
-  This function fetches the metadata associated with
-  dataset on a BEFdata portal. You need to provide the id
-  of the dataset, or the direct link to the Ecological
-  Metadata Language file. You can find the url on the
-  dataset page.
+  This function fetches the metadata associated with a
+  dataset on a BEFdata portal. You need to provide the
+  function with an id of the dataset or a path to an eml
+  file you downloaded from the portal manually. You can
+  find the ID in the URL of the dataset page in the portal
+  (e.g ID 6: .../datasets/6).
 }
 

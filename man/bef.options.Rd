@@ -18,7 +18,7 @@
 bef.options('url')
 bef.options(url='http://www.example.com')
 #Tematres URL
-bef.options('temtres_url')
+bef.options('tematres_url')
 bef.options(tematres_url="http://www.example.com")
 }
 

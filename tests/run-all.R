@@ -1,3 +1,3 @@
-library(testthat)
-library(rbefdata)
-test_package("rbefdata")
+# library(testthat)
+# library(rbefdata)
+# test_package("rbefdata")

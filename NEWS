@@ -1,3 +1,40 @@
+rbefdata 0.3.4
+==================
+
+* Introduces a helper "bef.extract.metadata()" which is a wrapper to the function 
+  attributes() and helps to extract the metadata information of a dataset object. 
+* Introduces a helper that opens the URL to a dataset in the browser given an id 
+  bef.goto.dataset_page(id).
+* Adds base API for tematres bef.tematres.api() to easily exploit the vocabulary. 
+* Adds base API for media wiki bef.mediawiki.api() to easily get descriptions of a term 
+  from a media wiki. It takes a term and the language of the Wikipedia queried can be changed
+  by two character country code Wikipedia uses for its sub domains.
+* Adds an upload method for datasets (bef.portal.upload.dataset()). It takes a dataset 
+  object (data frame) or file path (to CSV file) for upload and a title.
+* Re-factors several functions as well as some names. Defuncts the old deprecates and adds 
+  new de-functioned functions. 
+* Improves the metadata read from eml (ecological metadata language files) provided by 
+  the BEF-Data portal for each dataset. Now also supporting information about related 
+  material provided as freeformats for the dataset. 
+
+      x = bef.portal.get.metadata(dataset = 72)
+      names(x)
+      x$title
+      x$abstract
+      x$publicationDate
+      x$language
+      x$creators
+      x$authors
+      x$intellectualRights
+      x$distribution
+      x$keywords
+      x$taxonomicextent
+      x$sampling
+      x$spatial_coverage
+      x$temporal_coverage
+      x$columns
+      x$related_material
+
 rbefdata 0.3.3
 ==================
 
@@ -9,8 +46,8 @@ rbefdata 0.3.3
 rbefdata 0.3.2 
 ==================
 
-* minor bugfix release fixes broken tests 
-* Brings back functions uder the old names. But now a deprecation warning is displayed. 
+* minor bug fix release fixes broken tests 
+* Brings back functions under the old names. But now a deprecation warning is displayed. 
   The old function names will be removed in one of the next release cycles.
 
 rbefdata 0.3.1
@@ -22,12 +59,12 @@ rbefdata 0.3
 ==================
 
 * New naming scheme introduced with this version. The names are now scoped via period. Deprecation notice
-  is shown for old fuction names. 
+  is shown for old function names. 
 
 * User credentials can be set globally via `bef.options(user_credentials="your key")`.
   Note this won't affect user provided full urls.
 
-* Download of freeformat files is now possible. The download folder can be set via the bef.options. 
+* Download of free format files is now possible. The download folder can be set via the bef.options. 
 
 * Improved wrapper bef.portal.get()
 

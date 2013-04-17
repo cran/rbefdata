@@ -1,5 +1,20 @@
+rbefdata 0.3  
+==================
+
+* New naming scheme introduced with this version. The names are now scoped via period. Deprecation notice
+  is shown for old fuction names. 
+
+* User credentials can be set globally via `bef.options(user_credentials="your key")`.
+  Note this won't affect user provided full urls.
+
+* Download of freeformat files is now possible. The download folder can be set via the bef.options. 
+
+* Improved wrapper bef.portal.get()
+
+* fixed error on empty fields in xml 
+
 rbefdata 0.2 
------------------------------------------------ 
+==================
 
 * New function `bef.getdata()` that wraps around all the getter functions of 
   the BEFdata R package. So you can use the function to retrieve datasets, metadata 
@@ -10,8 +25,8 @@ rbefdata 0.2
   `bef.searchTematresLower("keyword")` to query keywords from a tematres thesaurus server. 
   You can set the URL via the `bef.options(tematres_url="http://your.url.com")` function
 
-rbefdata 0.1 
------------------------------------------------ 
+rbefdata 0.1  
+==================
 
 * Initial setup of the BEFdata R package. It provided basic functionality 
   to query data and metadata from a BEFdata portal dataset.

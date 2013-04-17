@@ -7,7 +7,7 @@
 #' @import XML
 #' @export
 
-bef.searchTematresLower = function(lookup_keyword)
+bef.tematres.search.narrower_keywords = function(lookup_keyword)
   {
     service_task="search"
     service_argument=lookup_keyword

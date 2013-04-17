@@ -1,8 +1,8 @@
-\name{bef.searchTematres}
-\alias{bef.searchTematres}
+\name{bef.tematres.search.keywords}
+\alias{bef.tematres.search.keywords}
 \title{Search a Tematres thesaurus via keywords}
 \usage{
-  bef.searchTematres(lookup_keyword)
+  bef.tematres.search.keywords(lookup_keyword)
 }
 \arguments{
   \item{lookup_keyword}{The keyword you are looking for}

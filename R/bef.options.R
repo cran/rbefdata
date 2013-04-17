@@ -27,7 +27,7 @@ bef.options = function(...) {
       if (is.list(lst[[1]]))
         lst = lst[[1]]
       if (length(lst) > 0) {
-        .bef.opts[names(lst)] = lst
+        .bef.opts[names(lst)] = lapply(lst, gsub, pattern = "\\s", replacement="")
         if (!is.null(lst$url)) {
           .bef.opts["url"] = sub(.bef.opts["url"], pattern = "(/)?$", replacement = "")
           .bef.opts["url"] = sub(.bef.opts["url"], pattern = "^(http://)?", replacement = "http://")
@@ -36,7 +36,7 @@ bef.options = function(...) {
           .bef.opts["tematres_service_url"] = sub(.bef.opts["tematres_url"], pattern = "index.php/?$", replacement = "services.php")
         }
         if (!is.null(lst$tematres_service_url)) {
-          .bef.opts["tematres_url"] = sub(.bef.opts["tematres_url"], pattern = "services.php/?$", replacement = "index.php")
+          .bef.opts["tematres_url"] = sub(.bef.opts["tematres_service_url"], pattern = "services.php/?$", replacement = "index.php")
         }
         .bef.env$.bef.opts = .bef.opts
       }

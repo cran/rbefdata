@@ -1,8 +1,10 @@
-\name{bef.getProposal}
-\alias{bef.getProposal}
+\name{bef.portal.get.proposal}
+\alias{bef.portal.get.proposal}
 \title{Fetch primary data in CSV format from a BEFdata portal paperproposal}
 \usage{
-  bef.getProposal(proposal_id, user_credentials, full_url,
+  bef.portal.get.proposal(proposal_id,
+    user_credentials = bef.options("user_credentials"),
+    full_url = paperproposal_url(proposal_id, user_credentials = user_credentials),
     curl = getCurlHandle(), ...)
 }
 \arguments{
@@ -46,7 +48,7 @@
 }
 \examples{
 \dontrun{
- prop1 = bef.getproposal(proposal_id=8, user_credentials="Yy2APsD87JiDbF9YBnU")
+ prop1 = bef.portal.get.proposal(proposal_id=8, user_credentials="Yy2APsD87JiDbF9YBnU")
  prop1
  }
 }

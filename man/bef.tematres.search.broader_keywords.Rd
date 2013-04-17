@@ -1,8 +1,8 @@
-\name{bef.searchTematresUpper}
-\alias{bef.searchTematresUpper}
+\name{bef.tematres.search.broader_keywords}
+\alias{bef.tematres.search.broader_keywords}
 \title{Search a Tematres thesaurus via keywords (up hierarchy)}
 \usage{
-  bef.searchTematresUpper(lookup_keyword)
+  bef.tematres.search.broader_keywords(lookup_keyword)
 }
 \arguments{
   \item{lookup_keyword}{The keyword you are looking for}

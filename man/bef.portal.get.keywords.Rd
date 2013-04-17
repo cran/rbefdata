@@ -1,8 +1,8 @@
-\name{bef.getKeywords}
-\alias{bef.getKeywords}
+\name{bef.portal.get.keywords}
+\alias{bef.portal.get.keywords}
 \title{Fetch keywords from a BEFdata portal.}
 \usage{
-  bef.getKeywords()
+  bef.portal.get.keywords()
 }
 \value{
   The function returns a character vector of keywords.
@@ -14,16 +14,16 @@
 }
 \details{
   (not finished) It delegates the task of fetching multiple
-  datasets to bef.getDataset which returns a data frame for
-  one dataset and a list element if there are multiple
-  datasets available.
+  datasets to bef.portal.get.dataset which returns a data
+  frame for one dataset and a list element if there are
+  multiple datasets available.
 
   An error is thrown when dataset is not found or you don't
   have the proper access right for it.
 }
 \examples{
 \dontrun{
-            keywords=bef.getKeywords()
+            keywords=bef.portal.get.keywords()
           }
 }
 

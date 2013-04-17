@@ -4,44 +4,25 @@
 #'
 #' \tabular{ll}{
 #'  \strong{Deprecated functions} \tab \strong{Replacement} \cr
-#'  \code{bef.tematres.search.keywords} \tab \code{\link{bef.tematres.api.search}} \cr
-#'  \code{bef.tematres.search.narrower_keywords} \tab \code{\link{bef.tematres.api.search}} \cr
-#'  \code{bef.tematres.search.broader_keywords} \tab \code{\link{bef.tematres.api.search}} \cr
-#'  \code{bef.portal.get.dataset_list} \tab \code{\link{bef.portal.get.datasets_for_keyword}} \cr
-#'  \code{bef.portal.get.proposal} \tab \code{\link{bef.portal.get.datasets_for_proposal}} \cr
+#'  \code{bef.portal.get.dataset_list} \tab \code{\link{bef.portal.get.datasets.for_keyword}} \cr
+#'  \code{bef.portal.get.proposal} \tab \code{\link{bef.portal.get.datasets.for_proposal}} \cr
 #' }
 #'
 #' @name rbefdata-deprecated
-#' @aliases bef.tematres.search.keywords bef.tematres.search.narrower_keywords bef.tematres.search.broader_keywords bef.portal.get.dataset_list bef.portal.get.proposal
-#' @export bef.tematres.search.keywords bef.tematres.search.narrower_keywords bef.tematres.search.broader_keywords bef.portal.get.dataset_list bef.portal.get.proposal
+#' @aliases bef.portal.get.dataset_list bef.portal.get.proposal
+#' @export bef.portal.get.dataset_list bef.portal.get.proposal
 #' @keywords internal
 
 ## version 0.3 -> 0.4 deprecates
 #' @rdname rbefdata-deprecated
-bef.tematres.search.keywords <- function(...) {
-  .Deprecated("bef.tematres.api.search")
-  bef.tematres.api.search(...)
-}
-#' @rdname rbefdata-deprecated
-bef.tematres.search.narrower_keywords <- function(...) {
-  .Deprecated("bef.tematres.api.search")
-  bef.tematres.api.search(...)
-}
-#' @rdname rbefdata-deprecated
-bef.tematres.search.broader_keywords <- function(...) {
-  .Deprecated("bef.tematres.api.search")
-  bef.tematres.api.search(...)
-}
-#' @rdname rbefdata-deprecated
 bef.portal.get.dataset_list <- function(...) {
   .Deprecated("bef.portal.get.datasets_for_keyword")
-  bef.portal.get.datasets_for_keyword(...)
+  bef.portal.get.datasets.for_keyword(...)
 }
+
 #' @rdname rbefdata-deprecated
 bef.portal.get.proposal <- function(...) {
   .Deprecated("bef.portal.get.datasets_for_proposal")
-  bef.portal.get.datasets_for_proposal(...)
+  bef.portal.get.datasets.for_proposal(...)
 }
-
-
 

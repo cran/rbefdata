@@ -19,22 +19,24 @@
 #'        the returned value in here (avoids unnecessary footprint)
 #' @param \dots This are other arguments passed to \code{\link[RCurl]{getURLContent}}
 #'
-#' @return The function returns a data frame with information about the proposals
-#'         attached datasets. An error is thrown when the proposal is not found
-#'         or you don't have the access rights for it.
+#' @return The function returns a list of raw data attached to a proposal.
+#' 	   An error is thrown when the proposal is not found or you don't have
+#'	   the access rights for it.
 #'
 #' @examples \dontrun{
-#'	  prop1 = bef.portal.get.datasets_for_proposal(proposal = 8)
+#'	  prop1 = bef.portal.get.datasets.for_proposal(proposal = 8)
 #'  	}
 #' @import RCurl
-#' @export bef.portal.get.datasets_for_proposal
+#' @export bef.portal.get.datasets.for_proposal bef.get.datasets.for_proposal
+#' @aliases bef.get.datasets.for_proposal
 
-bef.portal.get.datasets_for_proposal <- function(id, curl = getCurlHandle(), ...) {
-  paperproposal_url = paperproposal_url(proposal_id = id, type = "csv")
+bef.portal.get.datasets.for_proposal <- bef.get.datasets.for_proposal <- function(id, curl = getCurlHandle(), ...) {
+  paperproposal_url = paperproposal_url(proposal_id = id)
   proposal_raw_csv = getURLContent(paperproposal_url, curl = curl, ...)
   if (getCurlInfo(curl)$response.code != 200) {
     stop("Proposal not found or not accessible. Please check your credentials and make sure you have access right for it.")
   }
   proposal_data = read.csv(text = proposal_raw_csv)
-  return(proposal_data)
+  datasets = lapply(proposal_data$ID, function(x) bef.portal.get.dataset(id = x))
+  return(datasets)
 }

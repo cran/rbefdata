@@ -1,7 +1,7 @@
 # a helper method which behaves like dataset_url in Rails
 dataset_url <- function(dataset_id, type = c("csv2", "csv", "xml", "xls", "eml", "freeformat"), ...) {
   type = match.arg(type, c("csv2", "csv", "xml", "xls", "eml", "freeformat"))
-  seg = switch(type, csv2="/download.csv", csv="/download.csv", ".xml" , xls="/download", eml=".eml", freeformat="/freeformats_csv" )
+  seg = switch(type, csv2="/download.csv", csv="/download.csv", xml = ".xml", xls="/download", eml=".eml", freeformat="/freeformats_csv")
   params = Filter(Negate(is.null), list(...))
   if (type %in% c("csv2" ,"eml", "xml")) params$separate_category_columns = TRUE
   query_string = ""
@@ -11,6 +11,7 @@ dataset_url <- function(dataset_id, type = c("csv2", "csv", "xml", "xls", "eml",
   return(url)
 }
 
+# returns the url of a paper proposal
 paperproposal_url <- function(proposal_id, type = c("csv", "xml"),...) {
   type = match.arg(type, c("csv", "xml"))
   seg = switch(type, csv=".csv", xml=".xml")
@@ -32,6 +33,30 @@ upload_url <- function() {
   return(url)
 }
 
+# returns an update url for a dataset
+update_url <- function(dataset_id) {
+  base_url = bef.options("url")
+  segment = paste0("/datasets/", dataset_id)
+  parameter_sep = "?"
+  url = paste0(base_url, segment, parameter_sep, 'user_credentials=', bef.options('user_credentials'))
+  return(url)
+}
+
+# handle datagroups related urls
+datagroups_url <- function(datagroups_id, type = c("upload", "download")) {
+  type = match.arg(type, c("upload", "download"))
+  ending = switch(type, download = "/categories.csv", upload = "/update_categories")
+  base_url = bef.options("url")
+  segment = paste0("/datagroups/", datagroups_id)
+  parameter_sep = "?"
+  if(type == "upload") {
+    url = paste0(base_url, segment, ending, parameter_sep, 'user_credentials=', bef.options('user_credentials'))
+  } else {
+    url = paste0(base_url, segment, ending, parameter_sep, 'user_credentials=', bef.options('user_credentials'))
+  }
+  return(url)
+}
+
 # a helper that returns the keyword url provided the id
 keyword_url <- function(keyword_id) {
   url = sprintf("%s/keywords/%d", bef.options("url"), keyword_id)
@@ -48,6 +73,9 @@ this_function_requires_api_authentication <- function() {
 
 # returns an upload file no matter if it is given as path to a file or data.frame
 upload_file <- function(dataset) {
+  if(!is.character(dataset) & !is.data.frame(dataset)) {
+    stop("Please provide a data frame or a path to a CSV file")
+  }
   if (is.data.frame(dataset)) {
     write.csv(dataset, file.path(tempdir(), "upload_dataset.csv"), row.names = FALSE, fileEncoding = "UTF-8", quote = FALSE)
     upload_file = fileUpload(file.path(tempdir(), "upload_dataset.csv"))
@@ -64,6 +92,15 @@ bef.goto.dataset_page <- function(id) {
   id = id
   browseURL(paste0(base_url, segment, id))
 }
+
+# go to proposal page
+bef.goto.proposal_page <- function(id) {
+  base_url = bef.options("url")
+  segment = "/paperproposals/"
+  id = id
+  browseURL(paste0(base_url, segment, id))
+}
+
 
 # Helper that determines internet connection
 is_internet_connected <- function() {
@@ -113,6 +150,14 @@ all_dataset_of_portal = function() {
   return(datasets)
 }
 
+# returns all datagroups of the portal
+all_datagroups_of_portal = function() {
+  this_function_requires_api_authentication()
+  datagroup_info_xml = xmlTreeParse(paste0(bef.options("url"), "/datagroups.xml", "?", "user_credentials=", bef.options("user_credentials")), useInternalNodes = T)
+  datagroups = xmlToDataFrame(datagroup_info_xml, colClasses = c('numeric', 'character', 'character', 'numeric', 'numeric'), stringsAsFactors = FALSE)
+  return(datagroups)
+}
+
 # Given a title this returns the dataset id
 title_to_dataset_id <- function(dataset_title) {
   all_datasets = all_dataset_of_portal()
@@ -147,7 +192,7 @@ url_to_id <- function(url, resource="datasets") {
 
 # a wrapper function of xpathSApply. which will return NA instead of zero-lenght list when nodes not found
 xmlNodesValue <- function(doc, path){
-  out = xpathSApply(doc, path, xmlValue, trim=T, ignoreComments=T)
+  out = xpathSApply(doc, path, xmlValue, ignoreComments=T)
   out = Filter(function(x) x!="", out)
   if (length(out) == 0) return(NA)
   out

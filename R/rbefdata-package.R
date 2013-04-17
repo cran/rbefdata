@@ -10,5 +10,6 @@
 #' @name rbefdata-package
 #' @aliases rbefdata-package
 #' @aliases rbefdata
+#' @import rtematres
 #' @docType package
 NULL

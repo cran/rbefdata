@@ -1,5 +1,6 @@
 \name{bef.portal.upload.dataset}
 \alias{bef.portal.upload.dataset}
+\alias{bef.upload.dataset}
 \title{Upload a dataset to the BEFdata portal}
 \usage{
   bef.portal.upload.dataset(dataset, dataset_title,
@@ -18,7 +19,7 @@
   memory footprint.}
 
   \item{open_browser}{If this is set to true the page of
-  the dataset is opened in the broser after successful
+  the dataset is opened in the browser after successful
   upload. This defaults to FALSE.}
 }
 \value{
@@ -33,5 +34,11 @@
   the dataset and either a path to a CSV file for for
   upload or a dataset object. The dataset must have unique
   column names.
+}
+\examples{
+\dontrun{
+ dataset = data.frame(a = c(1,2,3,4), b = c("a","b","c","d"))
+ bef.portal.upload.dataset(dataset = dataset, dataset_title = "Testtitle", open_browser = T)
+      }
 }
 

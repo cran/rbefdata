@@ -1,5 +1,8 @@
 \name{bef.portal.get.metadata}
+\alias{bef.get.metadata}
+\alias{bef.get.metadata_for}
 \alias{bef.portal.get.metadata}
+\alias{bef.portal.get.metadata_for}
 \title{Get the metadata of a dataset from the BEFdata portal}
 \usage{
   bef.portal.get.metadata(dataset)

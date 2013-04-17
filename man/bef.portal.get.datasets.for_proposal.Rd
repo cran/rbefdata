@@ -1,8 +1,9 @@
-\name{bef.portal.get.datasets_for_proposal}
-\alias{bef.portal.get.datasets_for_proposal}
+\name{bef.portal.get.datasets.for_proposal}
+\alias{bef.get.datasets.for_proposal}
+\alias{bef.portal.get.datasets.for_proposal}
 \title{Fetch primary data in CSV format from a BEFdata portal paperproposal}
 \usage{
-  bef.portal.get.datasets_for_proposal(id,
+  bef.portal.get.datasets.for_proposal(id,
     curl = getCurlHandle(), ...)
 }
 \arguments{
@@ -17,10 +18,9 @@
   \code{\link[RCurl]{getURLContent}}}
 }
 \value{
-  The function returns a data frame with information about
-  the proposals attached datasets. An error is thrown when
-  the proposal is not found or you don't have the access
-  rights for it.
+  The function returns a list of raw data attached to a
+  proposal.  An error is thrown when the proposal is not
+  found or you don't have the access rights for it.
 }
 \description{
   This function fetches data associated to a paperproposal
@@ -41,7 +41,7 @@
 }
 \examples{
 \dontrun{
-	  prop1 = bef.portal.get.datasets_for_proposal(proposal = 8)
+	  prop1 = bef.portal.get.datasets.for_proposal(proposal = 8)
  	}
 }
 

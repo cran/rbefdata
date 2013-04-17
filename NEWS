@@ -1,3 +1,22 @@
+rbefdata 0.3.5
+==================
+
+* Adds a vizaliation function. Now you can use "bef.portal.vizualize.keywords()" to 
+  get a nice wordcoud of your BEFdata portal.  
+* Improves the functionality of the bef.portal.get.paperproposal function to return 
+  the data instead of returning the information about the proposal.
+* Shorter versions of function names now available as aliases  
+* Adds helper to get datagroups (title, description, column_count, category_count)
+* Adds dataset update function "bef.portal.update.dataset()" 
+* Adds freeformat attachment function "bef.portal.attach.to_dataset()" and 
+  "bef.portal.attach.to_proposal()"
+* Adds helper for categories URLs 
+* Admin interface:
+  + get categories of a datagroup bef.portal.get.categories_for() 
+  + New method to upload categories for harmonization 
+* removes the tematres functions as they are now provided via the rtematres 
+  package
+
 rbefdata 0.3.4
 ==================
 

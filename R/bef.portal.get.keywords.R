@@ -13,9 +13,10 @@
 #'           }
 #' @import RCurl
 #' @import XML
-#' @export bef.portal.get.keywords
+#' @export bef.portal.get.keywords bef.get.keywords
+#' @aliases bef.get.keywords
 
-bef.portal.get.keywords <-  function(curl = getCurlHandle(), ...) {
+bef.portal.get.keywords <- bef.get.keywords <- function(curl = getCurlHandle(), ...) {
    raw_keywords_xml = getURLContent(paste0(bef.options('url'),"/keywords.xml"), curl = curl, ...)
    if(getCurlInfo(curl)$response.code != 200) stop("Server Error. Try again later!")
    keywords_xml = xmlTreeParse(raw_keywords_xml, useInternalNodes = T)

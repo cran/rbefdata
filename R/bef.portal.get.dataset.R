@@ -1,4 +1,4 @@
-#' Fetch primary data in CSV format from a BEFdata portal dataset.
+#' Fetch primary data from a BEFdata portal dataset.
 #'
 #' This function fetches data associated with a BEFdata portal dataset. By
 #' default it will fetch the CSV file of a dataset. You need to provide the
@@ -32,10 +32,11 @@
 #'         metadata = attributes(dataset_list[[1]])
 #'       }
 #' @import RCurl
-#' @export bef.portal.get.dataset
+#' @export bef.portal.get.dataset bef.get.dataset bef.get.dataset_by bef.portal.get.dataset_by
+#' @aliases bef.get.dataset bef.get.dataset_by bef.portal.get.dataset_by
 
-bef.portal.get.dataset <- bef.portal.get.dataset_by <- function(id, curl=getCurlHandle(), ...) {
-  dataset_url = dataset_url(id, user_credentials= bef.options("user_credentials"))
+bef.portal.get.dataset <-  bef.get.dataset <- bef.get.dataset_by <- bef.portal.get.dataset_by <- function(id, curl=getCurlHandle(), ...) {
+  dataset_url = dataset_url(id, user_credentials= bef.options("user_credentials"), type = "csv2")
   response_body = getURLContent(dataset_url, curl = curl, ...)
   if(getCurlInfo(curl)$response.code != 200) {
     msg = sprintf("Dataset(id=%d) not found or not accessible. Please check your credentials and make sure you have access right for it.", id)
@@ -54,13 +55,14 @@ bef.portal.get.dataset <- bef.portal.get.dataset_by <- function(id, curl=getCurl
 #' @param keyword The keyword you like to fetch the associated datasets for
 #'
 #' @examples \dontrun{
-#'         list = bef.portal.get.datasets_for(keyword = "carbon")
+#'         list = bef.portal.get.datasets.for_keyword(keyword = "carbon")
 #'       }
 #' @import RCurl
 #' @import rjson
-#' @export bef.portal.get.datasets_for_keyword
+#' @export bef.portal.get.datasets.for_keyword bef.get.datasets.for_keyword
+#' @aliases bef.get.datasets.for_keyword
 
-bef.portal.get.datasets_for_keyword <- function(keyword) {
+bef.portal.get.datasets.for_keyword <- bef.get.datasets.for_keyword <- function(keyword) {
   keyword_json = fromJSON(getURL(paste0(bef.options('url'),"/keywords.json")))
   names = unlist(lapply(keyword_json, function(x) (x$name)))
   ids = unlist(lapply(keyword_json, function(x) (x$id)))

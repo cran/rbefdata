@@ -1,8 +1,9 @@
-\name{bef.portal.get.datasets_for_keyword}
-\alias{bef.portal.get.datasets_for_keyword}
+\name{bef.portal.get.datasets.for_keyword}
+\alias{bef.get.datasets.for_keyword}
+\alias{bef.portal.get.datasets.for_keyword}
 \title{Fetch a list of datasets for a keyword}
 \usage{
-  bef.portal.get.datasets_for_keyword(keyword)
+  bef.portal.get.datasets.for_keyword(keyword)
 }
 \arguments{
   \item{keyword}{The keyword you like to fetch the
@@ -14,7 +15,7 @@
 }
 \examples{
 \dontrun{
-        list = bef.portal.get.datasets_for(keyword = "carbon")
+        list = bef.portal.get.datasets.for_keyword(keyword = "carbon")
       }
 }
 

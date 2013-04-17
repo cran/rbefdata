@@ -34,14 +34,12 @@
 #'         attributes(dataset2)$author
 #'         multi = bef.portal.get.dataset(dataset_id=c(7,8), user_credentials="Yy2APsD87JiDbF9YBnU")
 #'       }
-#'
+#' @aliases bef.get.dataset
 #' @import RCurl
 #' @export
 
-bef.portal.get.dataset <- function(dataset_id, user_credentials=bef.options("user_credentials"),
+bef.portal.get.dataset <- bef.get.dataset <- function(dataset_id, user_credentials=bef.options("user_credentials"),
       full_url=dataset_url(dataset_id, user_credentials=user_credentials), curl=getCurlHandle(), ...) {
-
-  is_internet_connected()#?
 
   if (missing(dataset_id)) dataset_id = url_to_id(full_url)
   df = data.frame(id = dataset_id, full_url = full_url, stringsAsFactors = F)

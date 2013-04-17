@@ -1,4 +1,5 @@
 \name{bef.portal.get.proposal}
+\alias{bef.get.proposal}
 \alias{bef.portal.get.proposal}
 \title{Fetch primary data in CSV format from a BEFdata portal paperproposal}
 \usage{

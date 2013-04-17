@@ -1,4 +1,5 @@
 \name{bef.tematres.search.broader_keywords}
+\alias{bef.search.broader_keywords}
 \alias{bef.tematres.search.broader_keywords}
 \title{Search a Tematres thesaurus via keywords (up hierarchy)}
 \usage{

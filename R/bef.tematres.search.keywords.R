@@ -3,11 +3,12 @@
 #' @param lookup_keyword The keyword you are looking for
 #'
 #' @return The function returns a vector of keywords
+#' @aliases bef.search.keywords
 #' @import RCurl
 #' @import XML
 #' @export
 
-bef.tematres.search.keywords <- function(lookup_keyword) {
+bef.tematres.search.keywords <- bef.search.keywords <- function(lookup_keyword) {
   service_task = "search"
   service_argument = lookup_keyword
   service_url = sprintf("%s?task=%s&arg=%s", bef.options("tematres_service_url"), service_task, service_argument)

@@ -8,11 +8,12 @@
 #'        "broader" (look for upward definitions) and "narrower" (looking for downward definitions).
 #'
 #' @return The function returns a vector of keywords
+#' @aliases bef.search
 #' @import RCurl
 #' @import XML
 #' @export
 
-bef.tematres.search <- function(lookup_keyword, search_task="search") {
+bef.tematres.search <- bef.search <- function(lookup_keyword, search_task="search") {
   if (search_task=="search")
     {
       results=bef.tematres.search.keywords(lookup_keyword=lookup_keyword)

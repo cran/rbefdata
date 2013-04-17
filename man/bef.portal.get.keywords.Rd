@@ -1,4 +1,5 @@
 \name{bef.portal.get.keywords}
+\alias{bef.get.keywords}
 \alias{bef.portal.get.keywords}
 \title{Fetch keywords from a BEFdata portal.}
 \usage{

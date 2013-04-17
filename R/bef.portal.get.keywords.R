@@ -15,15 +15,14 @@
 #' @examples \dontrun{
 #'             keywords=bef.portal.get.keywords()
 #'           }
-#'
+#' @aliases bef.get.keywords
 #' @import RCurl
 #' @import rjson
 #' @import XML
 #' @export
 
-bef.portal.get.keywords= function()
+bef.portal.get.keywords <- bef.get.keywords <- function()
    {
-      is_internet_connected()#?
       keywords_json=fromJSON(getURL(paste0(bef.options('url'),"/keywords.json")))
       keywords_summary=unlist(lapply(keywords_json, function(x) (x$name)))
       return(keywords_summary)

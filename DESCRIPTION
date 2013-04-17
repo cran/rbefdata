@@ -1,6 +1,6 @@
 Package: rbefdata
 Title: BEFdata R package
-Version: 0.3.2
+Version: 0.3.3
 Author: Claas-Thido Pfaff <claas-thido.pfaff@idiv-biodiversity.de>,
         Karin Nadrowski <nadrowski@uni-leipzig.de>, Xingxing Man
         <manxingxing@gmail.com>
@@ -11,8 +11,8 @@ Authors@R: c(person("Claas-Thido", "Pfaff",
         email="nadrowski@uni-leipzig.de", role="aut"),
         person("Xingxing", "Man", email="manxingxing@gmail.com",
         role="aut"))
-Description: Basic R package to access the data structures offered by
-        the BEFdata portal.
+Description: Basic R package to access data structures offered by any
+        BEFdata portal instance.
 Suggests: ggplot2, plyr
 Imports: XML, RCurl, rjson, testthat
 Date: 2013-04-17
@@ -27,7 +27,7 @@ Collate: 'bef.options.R' 'zzz.R' 'rbefdata-package.R'
         'bef.tematres.search.broader_keywords.R' 'helper.R'
         'bef.portal.get.attachment.R' 'bef.portal.get.dataset_list.R'
         'rbefdata-deprecated.R'
-Packaged: 2013-06-19 18:28:37 UTC; sabsirro
+Packaged: 2013-06-25 14:22:49 UTC; sabsirro
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-06-20 07:44:10
+Date/Publication: 2013-06-25 17:00:16

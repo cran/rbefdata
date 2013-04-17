@@ -1,4 +1,5 @@
 \name{bef.portal.get}
+\alias{bef.get}
 \alias{bef.portal.get}
 \title{This is a wrapper for the getter functions of the BEFdata R package.}
 \usage{

@@ -1,4 +1,5 @@
 \name{bef.tematres.search}
+\alias{bef.search}
 \alias{bef.tematres.search}
 \title{A wrapper for the search on the tematres thesaurus.}
 \usage{

@@ -3,11 +3,12 @@
 #' @param lookup_keyword The keyword you are looking for
 #'
 #' @return The function returns a vector of keywords
+#' @aliases bef.search.narrower_keywords
 #' @import RCurl
 #' @import XML
 #' @export
 
-bef.tematres.search.narrower_keywords = function(lookup_keyword)
+bef.tematres.search.narrower_keywords <- bef.search.narrower_keywords <- function(lookup_keyword)
   {
     service_task="search"
     service_argument=lookup_keyword

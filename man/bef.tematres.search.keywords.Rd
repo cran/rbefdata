@@ -1,4 +1,5 @@
 \name{bef.tematres.search.keywords}
+\alias{bef.search.keywords}
 \alias{bef.tematres.search.keywords}
 \title{Search a Tematres thesaurus via keywords}
 \usage{

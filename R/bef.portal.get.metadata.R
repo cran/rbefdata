@@ -9,12 +9,12 @@
 #' @param file path to a local eml file
 #'
 #' @return a list of metadata. metadata that doesn't exist is represented as \code{NA}
+#' @aliases bef.get.metadata
 #' @import XML
 #' @export
 #'
 
-bef.portal.get.metadata = function(dataset_id, full_url = dataset_url(dataset_id, "eml"), file) {
-  is_internet_connected()#?
+bef.portal.get.metadata <- bef.get.metadata <- function(dataset_id, full_url = dataset_url(dataset_id, "eml"), file) {
 
   if (!missing(file)) full_url = file
   eml = xmlParse(full_url)

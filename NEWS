@@ -1,0 +1,17 @@
+rbefdata 0.2 
+----------------------------------------------- 
+
+* New function `bef.getdata()` that wraps around all the getter functions of 
+  the BEFdata R package. So you can use the function to retrieve datasets, metadata 
+  as well as all associated datasets from a paper proposal and a range of datasets 
+  in one step if you provide the ids.
+
+* New functions `bef.searchTematres("keyword")`, `bef.searchTematresUpper("keyword")`, and 
+  `bef.searchTematresLower("keyword")` to query keywords from a tematres thesaurus server. 
+  You can set the URL via the `bef.options(tematres_url="http://your.url.com")` function
+
+rbefdata 0.1 
+----------------------------------------------- 
+
+* Initial setup of the BEFdata R package. It provided basic functionality 
+  to query data and metadata from a BEFdata portal dataset.

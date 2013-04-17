@@ -1,43 +1,50 @@
 \name{bef.getdata}
 \alias{bef.getdata}
-\title{Fetch a CSV dataset from the BEFdata portal}
+\title{This is a wrapper for the getter functions of the BEFdata R package.}
 \usage{
-  bef.getdata(dataset_id, user_credential, full_url,
-    curl = getCurlHandle(), ...)
+  bef.getdata(dataset_id, proposal_id, full_url,
+    user_credentials)
 }
 \arguments{
-  \item{dataset_id}{id of a dataset in the BEFdata portal.}
+  \item{dataset_id}{This is the id of a dataset on a
+  BEFdata portal. You find the id in the url of the dataset
+  or on the download page of the dataset.}
 
-  \item{user_credential}{your login credential}
+  \item{proposal_id}{This is the id of a paperproposal}
 
-  \item{full_url}{use as direct download link instead the
-  id. you can find it in the dataset show page.}
+  \item{user_credentials}{This are the login credentials
+  required to verify the user identity. They ensure, you
+  have the rights to download the data.}
 
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
-
-  \item{\dots}{other arguments passed to
-  \code{\link[RCurl]{getURLContent}}}
+  \item{full_url}{This option works as direct download
+  link. It can be used instead of the according ids. You
+  can find the URL either on the dataset download page for
+  a dataset or on the proposal page for a paper proposal.}
 }
 \value{
-  a dataframe. Error is thrown when dataset is not found or
-  you don't have the proper access right for it.
+  The function returns a dataframe in case of a single
+  dataset and a list of objects in case of a paper proposal
+  as well as for multiple datasets defined via ids. An
+  error is thrown when the dataset or proposal is not found
+  or you don't have the proper access right to perform the
+  action. For detailed informations about the used
+  functions see bef.getData() and bef.getProposal().
 }
 \description{
-  This function fetches a dataset from the BEFdata portal.
-  By default it will fetch the CSV file of a dataset. You
-  need to provide the function with a dataset id which you
-  can find in the URL of the file on the BEFdata portal and
-  your user credentials to ensure you have the rights to
-  download the data. You can find your user credentials in
-  your user profile of the BEFdata portal. You can save the
-  data into a variable like in the example below.
+  It returns contents depending on the on the parameters
+  you provide to the function. It will fetch a dataset if
+  you provide the id. If you provide a proposal id it will
+  fetch all datasets associated with that proposal. You can
+  even provide the function with a full URL of either of
+  them and it will fetch the right contents by parsing the
+  URL.
 }
 \examples{
 \dontrun{
- dat1 = bef.getdata(dataset_id=8, user_credential="Yy2APsD87JiDbF9YBnU")
- dat2 = bef.getdata(full_url = 'http://befdatadevelepment.biow.uni-leipzig.de/datasets/5/download.csv?seperate_category_columns=true&user_credentials=Yy2APsD87JiDbF9YBnU')
-}
+ dataset = bef.getdata(dataset_id=8, user_credentials="Yy2APsD87JiDbF9YBnU")
+ proposal = bef.getdata(proposal_id=7, user_credentials="Yy2APsD87JiDbF9YBnU")
+ dataset_full_url = bef.getdata(full_url = 'http://befdatadevelepment.biow.uni-leipzig.de/datasets/5/download.csv?seperate_category_columns=true&user_credentials=Yy2APsD87JiDbF9YBnU')
+ multiple = bef.getdata(dataset_id=c(7,8), user_credentials="Yy2APsD87JiDbF9YBnU")
+ }
 }
 
